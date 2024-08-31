@@ -4,11 +4,11 @@ import { User } from '../users/users.entity'
 @Entity()
 export class typeAccount extends BaseEntity {
   @PrimaryColumn({ unique: true })
-    idAccount!: string
+    idAccount: string
 
   @Column({ unique: true })
-    type!: string
+    type: string
 
   @ManyToOne(() => User, (user: User) => user.type)
-    user!: User
+    user: User
 }

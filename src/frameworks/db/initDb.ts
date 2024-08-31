@@ -5,7 +5,7 @@ import { typeAccount } from '../../domain/typeAccount/typeAccount'
 config()
 
 export class DataBase {
-  private static _instance!: DataBase
+  private static _instance: DataBase
   appData!: DataSource
   constructor () {
     const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env

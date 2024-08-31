@@ -7,16 +7,16 @@ const port = process.env.PORT ?? 3004
 
 const app = express()
 
-async function startB (): Promise<void> {
-  const dB: DataBase = new DataBase()
-  const dataBaseSource = await dB.connectDb()
+const dB: DataBase = new DataBase()
 
-  if (dataBaseSource == null) {
-    console.log('No se conecto bien ')
-  }
-}
+dB.connectDb()
 
-await startB()
+  .then(() => {
+    console.log('G')
+  })
+  .catch(() => {
+    console.log('No conecto al parecer')
+  })
 
 app.use(json())
 

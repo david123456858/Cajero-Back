@@ -4,11 +4,11 @@ import { BaseEntity, Column, Entity, OneToMany, PrimaryColumn } from 'typeorm'
 @Entity()
 export class User extends BaseEntity {
   @PrimaryColumn()
-    numberPhone!: string
+    numberPhone: string
 
   @Column()
-    password!: string
+    password: string
 
   @OneToMany(() => typeAccount, (account: typeAccount) => account.user)
-    type!: typeAccount
+    type: typeAccount
 }

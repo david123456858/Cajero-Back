@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     /* Language and Environment */
-    "target": "es2017",                                 
+    "target": "es2015",                                 
     "experimentalDecorators": true,                   
     "emitDecoratorMetadata": true,                    
     /* Modules */
-    "module": "ESNext",                                
+    "module": "CommonJS",                                
     "rootDir": "./src",                                  
     "moduleResolution": "Node",                     
     "outDir": "dist",                                   
@@ -13,6 +13,7 @@
     "forceConsistentCasingInFileNames": true,       
     "strict": true,                                     
     "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true                        
+    "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization": false                        
   }
 }
