@@ -1,30 +1,22 @@
 import express, { json } from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
-// import { DataBase } from './db/initDb'
-// import { DataSource } from 'typeorm'
+import { DataBase } from './db/initDb'
 
 const port = process.env.PORT ?? 3004
 
 const app = express()
 
-// async function startB (): Promise<void> {
-//   const dB: DataBase = new DataBase()
-//   const dataBaseSource = await dB.connectDb()
+async function startB (): Promise<void> {
+  const dB: DataBase = new DataBase()
+  const dataBaseSource = await dB.connectDb()
 
-//   if (dataBaseSource == null) {
-//     console.log('No se conecto bien ')
-//   }
-// }
+  if (dataBaseSource == null) {
+    console.log('No se conecto bien ')
+  }
+}
 
-// const startBD = async (): Promise<DataSource | undefined> => {
-//   const dB: DataBase = new DataBase()
-//   const dataBaseSource = await dB.connectDb()
-//   if (dataBaseSource == null) {
-//     console.log('No se conecto bien ')
-//   }
-//   return dataBaseSource
-// }
+await startB()
 
 app.use(json())
 
