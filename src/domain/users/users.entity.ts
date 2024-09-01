@@ -1,4 +1,4 @@
-import { typeAccount } from './../typeAccount/typeAccount'
+import { Account } from './../typeAccount/typeAccount'
 import { BaseEntity, Column, Entity, OneToMany, PrimaryColumn } from 'typeorm'
 
 @Entity()
@@ -9,6 +9,6 @@ export class User extends BaseEntity {
   @Column()
     password: string
 
-  @OneToMany(() => typeAccount, (account: typeAccount) => account.user)
-    type: typeAccount
+  @OneToMany(() => Account, (account: Account) => account.user)
+    type: Account []
 }

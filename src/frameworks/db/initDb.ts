@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm'
 import { config } from 'dotenv'
 import { User } from '../../domain/users/users.entity'
-import { typeAccount } from '../../domain/typeAccount/typeAccount'
+import { Account } from '../../domain/typeAccount/typeAccount'
 config()
 
 export class DataBase {
@@ -16,7 +16,7 @@ export class DataBase {
       password: PGPASSWORD,
       database: PGDATABASE,
       username: PGUSER,
-      entities: [User, typeAccount],
+      entities: [User, Account],
       synchronize: true,
       logging: true,
       ssl: { rejectUnauthorized: false }
