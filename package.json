@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
- 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev --respawn --ignore-watch node_modules ./src/frameworks/index.ts"
@@ -12,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "class-validator": "^0.14.1",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "morgan": "^1.10.0",
