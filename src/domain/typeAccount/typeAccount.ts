@@ -18,7 +18,7 @@ export class Account extends BaseEntity {
   @ManyToOne(() => User, (user: User) => user.type)
     user: User
 
-  @BeforeInsert()
+  @BeforeInsert() // hacer antes que se inserte
   generateColumnPhone (): void {
     if (this.type === 'NEQUI') {
       this.numberPhone = `1${this.user.numberPhone}`

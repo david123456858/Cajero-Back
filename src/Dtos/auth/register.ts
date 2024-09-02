@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, Length } from 'class-validator'
+import { IsNotEmpty, IsNumber, IsString, Length } from 'class-validator'
 
 export class registerDtos {
   @IsNotEmpty()
@@ -10,4 +10,13 @@ export class registerDtos {
   @IsString()
   @Length(4, 6)
     password: string
+
+  @IsNotEmpty()
+  @IsString()
+  @Length(5, 11)
+    type: string
+
+  @IsNotEmpty()
+  @IsNumber()
+    saldo: number
 }
