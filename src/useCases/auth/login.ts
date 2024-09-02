@@ -42,7 +42,7 @@ export class caseUseAuthUser {
         user.type
       )
       if (userTypeCheck === null) {
-        return FailureProcess('No existe cuenta con este tipo de banco', 404)
+        return FailureProcess('No existe cuenta con este tipo de banco', 401)
       }
 
       if (user.passwords !== userPhone.password) {
