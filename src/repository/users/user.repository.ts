@@ -1,3 +1,4 @@
+import { Account } from '../../domain/typeAccount/typeAccount'
 import { User } from '../../domain/users/users.entity'
 import { IcrudRepository } from './../../adapters/interfaces/repository/crudRepository'
 
@@ -25,5 +26,10 @@ export class UserRepository implements IcrudRepository<User> {
       }
     })
     return user
+  }
+
+  async findByNumberAndType (id: string, type: string): Promise<Account | null | Error> {
+    const resultSecharType = await Account.findOneBy({ numberPhone: id, type })
+    return resultSecharType
   }
 }

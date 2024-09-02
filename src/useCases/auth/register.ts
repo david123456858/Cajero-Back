@@ -25,12 +25,6 @@ export class CaseUserRegister {
     data: registerDtos
   ): Promise<ISuccesProcess<any> | IFailureProcess<any>> {
     try {
-      const resultInfoUser = await this.repositoryUser.findById(data.phoneNumber)
-
-      if (resultInfoUser != null) {
-        return FailureProcess('Se encontro en la base de datos', 409)
-      }
-
       const user: User = new User()
       const account: Account = new Account()
       user.numberPhone = data.phoneNumber

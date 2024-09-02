@@ -8,4 +8,8 @@ export class loginDtos {
   @IsNotEmpty()
   @IsString()
     passwords: string
+
+  @IsNotEmpty()
+  @IsString()
+    type: string
 }

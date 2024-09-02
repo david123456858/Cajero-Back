@@ -1,7 +1,13 @@
-import { FailureProcess, SuccessProcess } from './../../adapters/utils/results/results'
+import {
+  FailureProcess,
+  SuccessProcess
+} from './../../adapters/utils/results/results'
 import { loginDtos } from '../../Dtos/auth/login'
 import { UserRepository } from '../../repository/users/user.repository'
-import { IFailureProcess, ISuccesProcess } from '../../adapters/interfaces/results/results'
+import {
+  IFailureProcess,
+  ISuccesProcess
+} from '../../adapters/interfaces/results/results'
 
 export class caseUseAuthUser {
   private readonly respository: UserRepository // para utilizar el respectivo repositorio
@@ -10,10 +16,12 @@ export class caseUseAuthUser {
     this.respository = userRepository
   }
 
-  async login (user: loginDtos): Promise<IFailureProcess<any> | ISuccesProcess<any>> {
+  async login (
+    user: loginDtos
+  ): Promise<IFailureProcess<any> | ISuccesProcess<any>> {
     try {
       const userPhone = await this.respository.findById(user.phoneNumber)
-
+      let numberPhoneAux: string
       if (userPhone instanceof Error) {
         return FailureProcess(userPhone.message, 403)
       }
@@ -22,8 +30,23 @@ export class caseUseAuthUser {
         return FailureProcess('El usuario no existe', 404)
       }
 
+      if (user.type === 'NEQUI') {
+        numberPhoneAux = '0' + user.phoneNumber
+        console.log(numberPhoneAux)
+      } else {
+        numberPhoneAux = '1' + user.phoneNumber
+      }
+
+      const userTypeCheck = await this.respository.findByNumberAndType(
+        numberPhoneAux,
+        user.type
+      )
+      if (userTypeCheck === null) {
+        return FailureProcess('No existe cuenta con este tipo de banco', 404)
+      }
+
       if (user.passwords !== userPhone.password) {
-        FailureProcess('Incorrecto el usuario o la contraseña', 401)
+        return FailureProcess('Incorrecto el usuario o la contraseña', 401)
       }
 
       return SuccessProcess('iniciaste sesion', 200)
