@@ -1,3 +1,4 @@
+import { FindOperator } from 'typeorm'
 import { IcrudRepository } from '../../adapters/interfaces/repository/crudRepository'
 import { Account } from '../../domain/typeAccount/typeAccount'
 
@@ -21,5 +22,21 @@ export class accountRepository implements IcrudRepository<Account> {
   async findAll (): Promise<Error | Account[] | null> {
     const resultSearchAccount = await Account.find({ relations: { user: true } })
     return resultSearchAccount
+  }
+
+  async findType (id: string, type: string): Promise<Error | null | Account> {
+    const numberResult: string | FindOperator<string> | undefined = this.agregatedNumber(id, type)
+    const account = await Account.findOneBy({ numberPhone: numberResult })
+    return account
+  }
+
+  private agregatedNumber (id: string, type: string): string | FindOperator<string> | undefined {
+    if (type === 'NEQUI') {
+      const idResult = `1${id}`
+      return idResult
+    } else if (type === 'BANCOLOMBIA') {
+      const idResult = `0${id}`
+      return idResult
+    }
   }
 }

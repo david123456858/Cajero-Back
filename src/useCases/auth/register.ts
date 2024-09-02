@@ -47,13 +47,26 @@ export class CaseUserRegister {
     }
   }
 
-  // async registerOnlyAccount (
-  //   data: registerDtos
-  // ): Promise<ISuccesProcess<any> | IFailureProcess<any>> {
-  //   try {
-
-  //   } catch (error) {
-  //     FailureProcess('internal error server', 500)
-  //   }
-  // }
+  async registerOnlyAccount (
+    data: registerDtos
+  ): Promise<ISuccesProcess<any> | IFailureProcess<any>> {
+    try {
+      const accountResult: Account | null | Error = await this.repositoryAccount.findById(data.phoneNumber)
+      if (accountResult !== null) {
+        return FailureProcess('Cuenta no registrada aun', 404)
+      }
+      const accounType = await this.repositoryAccount.findType(data.phoneNumber, data.type)
+      if (accounType != null) {
+        return FailureProcess('Ya exite la cuenta', 401)
+      }
+      const account: Account = new Account()
+      account.numberPhone = data.phoneNumber
+      account.type = data.type
+      account.saldo = data.saldo
+      await Account.save(account)
+      return SuccessProcess('account created', 200)
+    } catch (error) {
+      return FailureProcess('internal error server', 500)
+    }
+  }
 }
