@@ -49,7 +49,7 @@ export class caseUseAuthUser {
         return FailureProcess('Incorrecto el usuario o la contraseña', 401)
       }
 
-      return SuccessProcess('iniciaste sesion', 200)
+      return SuccessProcess(userTypeCheck, 200)
     } catch (error) {
       return FailureProcess('internal error server', 500)
     }
