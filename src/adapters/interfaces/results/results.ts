@@ -1,5 +1,5 @@
 export interface ISuccesProcess<T> {
-  error: T
+  value: T
   success: true
   status: number
 }

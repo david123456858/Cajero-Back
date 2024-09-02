@@ -1,8 +1,8 @@
 import { IFailureProcess } from './../../interfaces/results/results'
 import { ISuccesProcess } from '../../interfaces/results/results'
 
-export const SuccessProcess = <T>(error: T, status: number): ISuccesProcess<T> => ({
-  error,
+export const SuccessProcess = <T>(value: T, status: number): ISuccesProcess<T> => ({
+  value,
   success: true,
   status
 })
