@@ -3,9 +3,18 @@ import { caseUseAuthUser } from './../../../useCases/auth/login'
 import { CaseUserRegister } from './../../../useCases/auth/register'
 import { registerDtos } from '../../../Dtos/auth/register'
 import { loginDtos } from '../../../Dtos/auth/login'
+
 export class AuthController {
   private readonly caseUserRegister: CaseUserRegister
   private readonly caseUseUser: caseUseAuthUser
+
+  constructor (caseUserRegister: CaseUserRegister, caseUseUser: caseUseAuthUser) {
+    this.caseUserRegister = caseUserRegister
+    this.caseUseUser = caseUseUser
+
+    this.register = this.register.bind(this)
+    this.loggin = this.loggin.bind(this)
+  }
 
   async register (req: Request, res: Response, next: NextFunction): Promise<any> {
     const user: registerDtos = req.body

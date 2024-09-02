@@ -21,9 +21,9 @@ export class Account extends BaseEntity {
   @BeforeInsert() // hacer antes que se inserte
   generateColumnPhone (): void {
     if (this.type === 'NEQUI') {
-      this.numberPhone = `1${this.user.numberPhone}`
+      this.numberPhone = `1${this.numberPhone}`
     } else if (this.type === 'BANCOLOMBIA') {
-      this.numberPhone = `0${this.user.numberPhone}`
+      this.numberPhone = `0${this.numberPhone}`
     }
   }
 }

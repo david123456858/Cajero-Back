@@ -38,9 +38,10 @@ export class CaseUserRegister {
       account.numberPhone = data.phoneNumber
       account.saldo = data.saldo
       account.type = data.type
+      account.user = data.phoneNumber as any
 
-      await Account.save(account)
       await User.save(user)
+      await Account.save(account)
       return SuccessProcess('salio bien la vaina', 202)
     } catch (error) {
       return FailureProcess('internal error server', 500)
@@ -63,6 +64,7 @@ export class CaseUserRegister {
       account.numberPhone = data.phoneNumber
       account.type = data.type
       account.saldo = data.saldo
+      account.user = data.phoneNumber as any
       await Account.save(account)
       return SuccessProcess('account created', 200)
     } catch (error) {
