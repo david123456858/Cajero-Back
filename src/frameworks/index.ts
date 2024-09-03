@@ -3,6 +3,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 import { DataBase } from './db/initDb'
 import { RouteUser } from '../adapters/router/Auth/auth'
+import { routerAccount } from '../adapters/router/account/accoun.route'
 
 const port = process.env.PORT ?? 3004
 
@@ -20,6 +21,8 @@ dB.connectDb()
   })
 
 app.use(json())
+
+app.use(routerAccount())
 
 app.use(RouteUser())
 

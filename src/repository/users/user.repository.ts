@@ -29,7 +29,7 @@ export class UserRepository implements IcrudRepository<User> {
   }
 
   async findByNumberAndType (id: string, type: string): Promise<Account | null | Error> {
-    const resultSecharType = await Account.findOneBy({ numberPhone: id, type })
+    const resultSecharType = await Account.findOne({ where: { numberPhone: id, type }, relations: { user: true } })
     return resultSecharType
   }
 }
