@@ -11,6 +11,10 @@ const app = express()
 
 const dB: DataBase = new DataBase()
 
+app.use(cors())
+
+app.use(cors({ origin: 'http://localhost:4200' }))
+
 dB.connectDb()
 
   .then(() => {
@@ -27,8 +31,6 @@ app.use(routerAccount())
 app.use(RouteUser())
 
 app.use(morgan('dev'))
-
-app.use(cors({ origin: '*' }))
 
 app.listen(port, () => {
   console.log(`Server running in http://localhost:${port}`)
