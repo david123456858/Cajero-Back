@@ -13,7 +13,7 @@ const dB: DataBase = new DataBase()
 
 app.use(cors())
 
-app.use(cors({ origin: 'http://localhost:4200' }))
+app.use(cors({ origin: '*', credentials: true }))// eso
 
 dB.connectDb()
 
