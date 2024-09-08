@@ -13,7 +13,7 @@ const dB: DataBase = new DataBase()
 
 app.use(cors())
 
-app.use(cors({ origin: '*', credentials: true }))// eso
+app.use(cors({ origin: '*', credentials: true }))// Credentials es para poder dejar darle permiso al nevegador del cel
 
 dB.connectDb()
 
