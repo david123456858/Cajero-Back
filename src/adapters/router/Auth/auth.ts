@@ -15,7 +15,9 @@ export const RouteUser = (): Router => {
 
   const controller = new AuthController(caseUserRegister, caseUserAuthLogin)
 
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
   router.post(`${urlRoute}/loggin`, controller.loggin)
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
   router.post(`${urlRoute}/register`, controller.register)
 
   return router

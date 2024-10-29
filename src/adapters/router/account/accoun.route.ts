@@ -11,6 +11,7 @@ export const routerAccount = (): Router => {
 
   const controller = new AccountController(caseUseUpdateAccount)
 
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
   router.put(`${urlRoute}/update/balance`, controller.updateBalance)
 
   return router
