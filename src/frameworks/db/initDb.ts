@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { DataSource } from 'typeorm'
 import { config } from 'dotenv'
 import { User } from '../../domain/users/users.entity'

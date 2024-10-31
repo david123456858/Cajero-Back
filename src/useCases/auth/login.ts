@@ -29,6 +29,7 @@ export class caseUseAuthUser {
       if (userPhone === null) {
         return FailureProcess('El usuario no existe', 404)
       }
+      console.log(userPhone.password)
 
       if (user.type === 'NEQUI') {
         numberPhoneAux = '0' + user.phoneNumber
