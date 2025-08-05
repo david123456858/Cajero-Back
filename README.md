@@ -63,4 +63,11 @@ Estructura de carptes
     └── tsconfig.json
 ```
 
+## Evidencias del front
+<p align="center">
+  <img src="./src/assets/image/834shots_so.png" width="500"/>
+</p>
 
+<p align="center">
+  <img src="./src/assets/image/cajero2.png" width="500"/>
+</p>
