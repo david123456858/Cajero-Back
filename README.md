@@ -14,25 +14,25 @@ Este proyecto simula el funcionamiento de un cajero automático (ATM) con Expres
 
 ```mermaid
 flowchart TD
-    subgraph Domain Layer
+    subgraph Domain_Layer
         D1[Entidades]
         D2[Reglas del dominio]
     end
 
-    subgraph Application Layer
-        UC[Use Cases]
+    subgraph Application_Layer
+        UC[Casos de uso]
     end
 
     subgraph Ports
-        PR1[Puertos de entrada (adapters)]
-        PR2[Puertos de salida (repository interfaces)]
+        PR1[Entradas - Adapters]
+        PR2[Salidas - Repository]
     end
 
-    subgraph Infrastructure Layer
-        INF1[Express Controllers]
-        INF2[ORM (TypeORM)]
+    subgraph Infrastructure_Layer
+        INF1[Controladores Express]
+        INF2[TypeORM]
         INF3[PostgreSQL]
-        INF4[Middlewares, Encriptación, etc.]
+        INF4[Middlewares y servicios]
     end
 
     PR1 --> UC
