@@ -65,12 +65,12 @@ Estructura de carptes
 
 ## Evidencias del front
 <p align="center">
-  <img src="./src/assets/image/834shots_so.png" width="500"/>
+  <img src="./src/assets/image/834shots_so.png" width="1000"/>
 </p>
 
 ![Representa vistas de login y las opciones de poder sacar la el dinero](./src/assets/image/cajero2.png)
 ![Estas dos vistar no dejan observar tanto como el inicio del proceso tanto como el home](./src/assets/image/834shots_so.png)
 
 <p align="center">
-  <img src="./src/assets/image/cajero2.png" width="500"/>
+  <img src="./src/assets/image/cajero2.png" width="1000"/>
 </p>
