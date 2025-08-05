@@ -13,18 +13,37 @@ Este proyecto simula el funcionamiento de un cajero automático (ATM) con Expres
 ## 📊 Diagrama del flujo
 
 ```mermaid
-graph TD;
-    A[Usuario en Frontend] --> B[Registro: Número + Banco]
-    B --> C[Backend Express (TS)]
-    C --> D[Asignar tipo de banco: Nequi(0) / Bancolombia(1)]
-    D --> E[Asignar dinero base]
-    A --> F[Login: Teléfono + Contraseña]
-    F --> G[Validación de contraseña (Estática/Dinámica)]
-    G --> H[Acceso a Cajero Virtual]
-    H --> I[Algoritmo de retiro de billetes]
-    I --> J[Mostrar billetes al usuario]
-    I --> K[Actualizar saldo en PostgreSQL]
+flowchart TD
+    subgraph Domain Layer
+        D1[Entidades]
+        D2[Reglas del dominio]
+    end
+
+    subgraph Application Layer
+        UC[Use Cases]
+    end
+
+    subgraph Ports
+        PR1[Puertos de entrada (adapters)]
+        PR2[Puertos de salida (repository interfaces)]
+    end
+
+    subgraph Infrastructure Layer
+        INF1[Express Controllers]
+        INF2[ORM (TypeORM)]
+        INF3[PostgreSQL]
+        INF4[Middlewares, Encriptación, etc.]
+    end
+
+    PR1 --> UC
+    UC --> D1
+    UC --> PR2
+    PR2 --> INF2
+    INF1 --> PR1
+    INF2 --> INF3
+    INF4 --> INF1
 ```
+
 Estructura de carptes 
 ```
 └── 📁Back-Cajero
